@@ -1,0 +1,186 @@
+/* style.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+  background: #f9f9f9;
+  color: #333;
+}
+
+header {
+  background: #2c3e50;
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#downloadCV {
+  color: #fff;
+  cursor: pointer;
+  background-color: #333;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+#downloadCV a {
+  text-decoration: none;
+  color: white;
+}
+nav a {
+  color: #ecf0f1;
+  margin-left: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.home {
+  background: #2b2d42;
+  color: #edf2f4;
+  padding: 100px 20px;
+}
+.home-content {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #ef233c;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #d90429;
+}
+
+.social-links {
+  margin-top: 20px;
+}
+
+.social-links a {
+  margin: 0 10px;
+  color: #8d99ae;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #edf2f4;
+}
+
+.experience {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.timeline-item {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-left: 4px solid #ef233c;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.timeline-item h3 {
+  margin-top: 0;
+  color: #2b2d42;
+}
+
+.timeline-item .duration {
+  display: block;
+  font-size: 0.9em;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.timeline-item ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.timeline-item ul li {
+  list-style-type: disc;
+  margin-bottom: 5px;
+}
+
+.projects {
+  background-color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.project-list {
+  list-style: none;
+  padding: 0;
+}
+
+.project-list li {
+  margin: 10px 0;
+}
+
+.project-list a {
+  text-decoration: none;
+  color: #2b2d42;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.project-list a:hover {
+  color: #ef233c;
+}
+.skills {
+  background-color: #edf2f4;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+#skillsWheel {
+  max-width: 100%;
+  height: auto;
+  margin-top: 40px;
+}
+
+.contact {
+  background: #fff;
+}
+
+footer {
+  background: #2c3e50;
+  color: #ecf0f1;
+  padding: 20px;
+  text-align: center;
+}

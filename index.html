@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Портфолио – Алексей</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Навигация -->
+    <header>
+      <div class="container">
+        <div id="downloadCV">
+          <a href="resume.pdf" target="_blank" download>📄 Скачать резюме</a>
+        </div>
+        <nav>
+          <a href="#home">Главная</a>
+          <a href="#about">Обо мне</a>
+          <a href="#projects">Проекты</a>
+          <a href="#blog">Блог</a>
+          <a href="#contact">Контакты</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Главная -->
+    <section id="home" class="section home">
+      <div class="home-content">
+        <h2>Привет! Я Уссеналихан</h2>
+        <p>Веб-разработчик, создающий адаптивные и удобные сайты</p>
+        <a href="#projects" class="btn">Мои проекты</a>
+
+        <div class="social-links">
+          <a href="https://github.com/MamyrUly" target="_blank">GitHub</a>
+          <a href="https://t.me/QwertyEeeaaa" target="_blank">Telegram</a>
+          <a
+            href="https://linkedin.com/in/usenalikhan-mamyrov-46a7a3240"
+            target="_blank"
+            >LinkedIn</a
+          >
+          <a href="https://youtube.com/@broiss2642" target="_blank">Youtube</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Мой опыт -->
+    <section id="experience" class="section experience">
+      <h2>Мой опыт</h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>МОФ «Білім-Инновация»</h3>
+          <span class="duration">Апрель 2024 — Июнь 2024 (3 месяца)</span>
+          <p><strong>Фронтэнд стажер</strong></p>
+          <ul>
+            <li>Адаптивная вёрстка по макету</li>
+            <li>Изменения и добавление компонентов сайта</li>
+            <li>JavaScript DOM и React: реализация динамики</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Tech Orda / Alpha Edu</h3>
+          <span class="duration">Ноябрь 2023 — Апрель 2024 (6 месяцев)</span>
+          <p><strong>Студент курса Web-разработки</strong></p>
+          <p>Проходил курс от школы Alpha Edu в рамках программы Tech Orda.</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Образование</h3>
+          <span class="duration">2021 — 2025</span>
+          <p><strong>Astana IT University</strong></p>
+          <p>Бакалавр, специальность — Кибербезопасность</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Проекты -->
+    <section id="projects" class="section projects">
+      <h2>Мои проекты</h2>
+      <ul class="project-list">
+        <li>
+          <a href="https://github.com/yourusername/project1" target="_blank"
+            >Проект 1 – Landing Page</a
+          >
+        </li>
+        <li>
+          <a href="https://github.com/yourusername/project2" target="_blank"
+            >Проект 2 – TODO на React</a
+          >
+        </li>
+        <li>
+          <a href="https://github.com/yourusername/project3" target="_blank"
+            >Проект 3 – Учебный CRUD API</a
+          >
+        </li>
+        <li>
+          <a href="https://github.com/yourusername/project4" target="_blank"
+            >Проект 4 – Калькулятор</a
+          >
+        </li>
+      </ul>
+    </section>
+
+    <!-- скилы -->
+    <section id="skills" class="section skills">
+      <h2>Мои навыки</h2>
+      <canvas id="skillsWheel" width="400" height="400"></canvas>
+    </section>
+
+    <script>
+      const canvas = document.getElementById("skillsWheel");
+      const ctx = canvas.getContext("2d");
+
+      const skills = [
+        { name: "HTML", value: 8 },
+        { name: "CSS", value: 7 },
+        { name: "JavaScript", value: 6 },
+        { name: "React", value: 5 },
+        { name: "Git", value: 7 },
+        { name: "Figma", value: 6 },
+        { name: "Teamwork", value: 8 },
+        { name: "Responsiveness", value: 7 },
+      ];
+
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
+      const radius = 140;
+      const levels = 10;
+
+      // Сетка круга
+      ctx.strokeStyle = "#ccc";
+      for (let i = 1; i <= levels; i++) {
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, (radius / levels) * i, 0, 2 * Math.PI);
+        ctx.stroke();
+      }
+
+      // Линии по радиусам
+      const angleStep = (2 * Math.PI) / skills.length;
+      skills.forEach((skill, i) => {
+        const angle = i * angleStep;
+        const x = centerX + radius * Math.cos(angle);
+        const y = centerY + radius * Math.sin(angle);
+
+        ctx.beginPath();
+        ctx.moveTo(centerX, centerY);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+      });
+
+      // Многоугольник навыков
+      ctx.beginPath();
+      skills.forEach((skill, i) => {
+        const angle = i * angleStep;
+        const valueRadius = (skill.value / levels) * radius;
+        const x = centerX + valueRadius * Math.cos(angle);
+        const y = centerY + valueRadius * Math.sin(angle);
+
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      });
+      ctx.closePath();
+      ctx.fillStyle = "rgba(239, 35, 60, 0.5)";
+      ctx.fill();
+      ctx.strokeStyle = "#ef233c";
+      ctx.stroke();
+
+      // Подписи к скилам
+      ctx.fillStyle = "#333";
+      ctx.font = "14px sans-serif";
+      skills.forEach((skill, i) => {
+        const angle = i * angleStep;
+        const labelX = centerX + (radius + 20) * Math.cos(angle);
+        const labelY = centerY + (radius + 20) * Math.sin(angle);
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(skill.name, labelX, labelY);
+      });
+    </script>
+
+    <!-- Контакты -->
+    <section id="contact" class="section contact">
+      <h2>Связаться со мной</h2>
+      <p>Email: <a href="mailto:mamusenalikhan.com">alex@example.com</a></p>
+      <p>Telegram: <a href="https://t.me/QwertyEeeaaa">@yourusername</a></p>
+    </section>
+
+    <footer>
+      <p>© 2025 Ussenalikhan.</p>
+    </footer>
+  </body>
+</html>
